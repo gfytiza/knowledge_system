@@ -1,0 +1,445 @@
+@prefix : <http://www.georgiaftz.org/myontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.georgiaftz.org/myontology/> .
+
+<http://www.georgiaftz.org/myontology/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.georgiaftz.org/myontology/fromRoute
+:fromRoute rdf:type owl:ObjectProperty ;
+           rdfs:domain :trips ;
+           rdfs:range :routes .
+
+
+###  http://www.georgiaftz.org/myontology/fromService
+:fromService rdf:type owl:ObjectProperty ;
+             rdfs:domain :trips ;
+             rdfs:range :services .
+
+
+###  http://www.georgiaftz.org/myontology/hasAirport
+:hasAirport rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasStop .
+
+
+###  http://www.georgiaftz.org/myontology/hasBusStop
+:hasBusStop rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasUrbanStop .
+
+
+###  http://www.georgiaftz.org/myontology/hasHarbor
+:hasHarbor rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasStop .
+
+
+###  http://www.georgiaftz.org/myontology/hasKtelStop
+:hasKtelStop rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasStop .
+
+
+###  http://www.georgiaftz.org/myontology/hasMetroStop
+:hasMetroStop rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasUrbanStop .
+
+
+###  http://www.georgiaftz.org/myontology/hasStop
+:hasStop rdf:type owl:ObjectProperty ;
+         rdfs:domain :trips ;
+         rdfs:range :stops .
+
+
+###  http://www.georgiaftz.org/myontology/hasTrainStation
+:hasTrainStation rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :hasStop .
+
+
+###  http://www.georgiaftz.org/myontology/hasTramStop
+:hasTramStop rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasUrbanStop .
+
+
+###  http://www.georgiaftz.org/myontology/hasTroleiStop
+:hasTroleiStop rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :hasUrbanStop .
+
+
+###  http://www.georgiaftz.org/myontology/hasUrbanStop
+:hasUrbanStop rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasStop .
+
+
+###  http://www.georgiaftz.org/myontology/worksAt
+:worksAt rdf:type owl:ObjectProperty ;
+         rdfs:domain :services ;
+         rdfs:range :days .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:domain :services .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.georgiaftz.org/myontology/arrival_time
+:arrival_time rdf:type owl:DatatypeProperty ;
+              rdfs:domain :trips .
+
+
+###  http://www.georgiaftz.org/myontology/departure_time
+:departure_time rdf:type owl:DatatypeProperty ;
+                rdfs:domain :trips .
+
+
+###  http://www.georgiaftz.org/myontology/end_date
+:end_date rdf:type owl:DatatypeProperty ;
+          rdfs:domain :services .
+
+
+###  http://www.georgiaftz.org/myontology/hasDistance
+:hasDistance rdf:type owl:DatatypeProperty ;
+             rdfs:domain :routes .
+
+
+###  http://www.georgiaftz.org/myontology/route_direction
+:route_direction rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :trips .
+
+
+###  http://www.georgiaftz.org/myontology/route_long_name
+:route_long_name rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :routes .
+
+
+###  http://www.georgiaftz.org/myontology/route_short_name
+:route_short_name rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :routes .
+
+
+###  http://www.georgiaftz.org/myontology/route_type
+:route_type rdf:type owl:DatatypeProperty ;
+            rdfs:domain :routes .
+
+
+###  http://www.georgiaftz.org/myontology/start_date
+:start_date rdf:type owl:DatatypeProperty ;
+            rdfs:domain :services .
+
+
+###  http://www.georgiaftz.org/myontology/stop_desc
+:stop_desc rdf:type owl:DatatypeProperty ;
+           rdfs:domain :stops .
+
+
+###  http://www.georgiaftz.org/myontology/stop_loc
+:stop_loc rdf:type owl:DatatypeProperty ;
+          rdfs:domain :stops .
+
+
+###  http://www.georgiaftz.org/myontology/stop_name
+:stop_name rdf:type owl:DatatypeProperty ;
+           rdfs:domain :stops .
+
+
+###  http://www.georgiaftz.org/myontology/stop_sequence_stop
+:stop_sequence_stop rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :stops .
+
+
+###  http://www.georgiaftz.org/myontology/stop_sequence_trip
+:stop_sequence_trip rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :trips .
+
+
+###  http://www.georgiaftz.org/myontology/trip_headsign
+:trip_headsign rdf:type owl:DatatypeProperty ;
+               rdfs:domain :trips .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.georgiaftz.org/myontology/air_routes
+:air_routes rdf:type owl:Class ;
+            rdfs:subClassOf :routes .
+
+
+###  http://www.georgiaftz.org/myontology/air_services
+:air_services rdf:type owl:Class ;
+              rdfs:subClassOf :services .
+
+
+###  http://www.georgiaftz.org/myontology/air_trip
+:air_trip rdf:type owl:Class ;
+          rdfs:subClassOf :trips .
+
+
+###  http://www.georgiaftz.org/myontology/airplane
+:airplane rdf:type owl:Class ;
+          rdfs:subClassOf :transportation_vehicle .
+
+
+###  http://www.georgiaftz.org/myontology/airport
+:airport rdf:type owl:Class ;
+         rdfs:subClassOf :stops .
+
+
+###  http://www.georgiaftz.org/myontology/bus
+:bus rdf:type owl:Class ;
+     rdfs:subClassOf :urban_vehicle .
+
+
+###  http://www.georgiaftz.org/myontology/bus_route
+:bus_route rdf:type owl:Class ;
+           rdfs:subClassOf :urban_routes .
+
+
+###  http://www.georgiaftz.org/myontology/bus_service
+:bus_service rdf:type owl:Class ;
+             rdfs:subClassOf :urban_services .
+
+
+###  http://www.georgiaftz.org/myontology/bus_stop
+:bus_stop rdf:type owl:Class ;
+          rdfs:subClassOf :urban_stops .
+
+
+###  http://www.georgiaftz.org/myontology/bus_trip
+:bus_trip rdf:type owl:Class ;
+          rdfs:subClassOf :urban_trip .
+
+
+###  http://www.georgiaftz.org/myontology/days
+:days rdf:type owl:Class .
+
+
+###  http://www.georgiaftz.org/myontology/harbor
+:harbor rdf:type owl:Class ;
+        rdfs:subClassOf :stops .
+
+
+###  http://www.georgiaftz.org/myontology/ktel
+:ktel rdf:type owl:Class ;
+      rdfs:subClassOf :transportation_vehicle .
+
+
+###  http://www.georgiaftz.org/myontology/ktel_routes
+:ktel_routes rdf:type owl:Class ;
+             rdfs:subClassOf :routes .
+
+
+###  http://www.georgiaftz.org/myontology/ktel_services
+:ktel_services rdf:type owl:Class ;
+               rdfs:subClassOf :services .
+
+
+###  http://www.georgiaftz.org/myontology/ktel_stops
+:ktel_stops rdf:type owl:Class ;
+            rdfs:subClassOf :stops .
+
+
+###  http://www.georgiaftz.org/myontology/ktel_trip
+:ktel_trip rdf:type owl:Class ;
+           rdfs:subClassOf :trips .
+
+
+###  http://www.georgiaftz.org/myontology/metro
+:metro rdf:type owl:Class ;
+       rdfs:subClassOf :urban_vehicle .
+
+
+###  http://www.georgiaftz.org/myontology/metro_route
+:metro_route rdf:type owl:Class ;
+             rdfs:subClassOf :urban_routes .
+
+
+###  http://www.georgiaftz.org/myontology/metro_service
+:metro_service rdf:type owl:Class ;
+               rdfs:subClassOf :urban_services .
+
+
+###  http://www.georgiaftz.org/myontology/metro_stop
+:metro_stop rdf:type owl:Class ;
+            rdfs:subClassOf :urban_stops .
+
+
+###  http://www.georgiaftz.org/myontology/metro_trip
+:metro_trip rdf:type owl:Class ;
+            rdfs:subClassOf :urban_trip .
+
+
+###  http://www.georgiaftz.org/myontology/routes
+:routes rdf:type owl:Class .
+
+
+###  http://www.georgiaftz.org/myontology/sea_routes
+:sea_routes rdf:type owl:Class ;
+            rdfs:subClassOf :routes .
+
+
+###  http://www.georgiaftz.org/myontology/sea_services
+:sea_services rdf:type owl:Class ;
+              rdfs:subClassOf :services .
+
+
+###  http://www.georgiaftz.org/myontology/sea_trip
+:sea_trip rdf:type owl:Class ;
+          rdfs:subClassOf :trips .
+
+
+###  http://www.georgiaftz.org/myontology/services
+:services rdf:type owl:Class .
+
+
+###  http://www.georgiaftz.org/myontology/ship
+:ship rdf:type owl:Class ;
+      rdfs:subClassOf :transportation_vehicle .
+
+
+###  http://www.georgiaftz.org/myontology/stops
+:stops rdf:type owl:Class .
+
+
+###  http://www.georgiaftz.org/myontology/train
+:train rdf:type owl:Class ;
+       rdfs:subClassOf :transportation_vehicle .
+
+
+###  http://www.georgiaftz.org/myontology/train_routes
+:train_routes rdf:type owl:Class ;
+              rdfs:subClassOf :routes .
+
+
+###  http://www.georgiaftz.org/myontology/train_services
+:train_services rdf:type owl:Class ;
+                rdfs:subClassOf :services .
+
+
+###  http://www.georgiaftz.org/myontology/train_station
+:train_station rdf:type owl:Class ;
+               rdfs:subClassOf :stops .
+
+
+###  http://www.georgiaftz.org/myontology/train_trip
+:train_trip rdf:type owl:Class ;
+            rdfs:subClassOf :trips .
+
+
+###  http://www.georgiaftz.org/myontology/tram
+:tram rdf:type owl:Class ;
+      rdfs:subClassOf :urban_vehicle .
+
+
+###  http://www.georgiaftz.org/myontology/tram_route
+:tram_route rdf:type owl:Class ;
+            rdfs:subClassOf :urban_routes .
+
+
+###  http://www.georgiaftz.org/myontology/tram_service
+:tram_service rdf:type owl:Class ;
+              rdfs:subClassOf :urban_services .
+
+
+###  http://www.georgiaftz.org/myontology/tram_stop
+:tram_stop rdf:type owl:Class ;
+           rdfs:subClassOf :urban_stops .
+
+
+###  http://www.georgiaftz.org/myontology/tram_trip
+:tram_trip rdf:type owl:Class ;
+           rdfs:subClassOf :urban_trip .
+
+
+###  http://www.georgiaftz.org/myontology/transportation_vehicle
+:transportation_vehicle rdf:type owl:Class .
+
+
+###  http://www.georgiaftz.org/myontology/trips
+:trips rdf:type owl:Class .
+
+
+###  http://www.georgiaftz.org/myontology/trolei
+:trolei rdf:type owl:Class ;
+        rdfs:subClassOf :urban_vehicle .
+
+
+###  http://www.georgiaftz.org/myontology/trolei_route
+:trolei_route rdf:type owl:Class ;
+              rdfs:subClassOf :urban_routes .
+
+
+###  http://www.georgiaftz.org/myontology/trolei_service
+:trolei_service rdf:type owl:Class ;
+                rdfs:subClassOf :urban_services .
+
+
+###  http://www.georgiaftz.org/myontology/trolei_stop
+:trolei_stop rdf:type owl:Class ;
+             rdfs:subClassOf :urban_stops .
+
+
+###  http://www.georgiaftz.org/myontology/trolei_trip
+:trolei_trip rdf:type owl:Class ;
+             rdfs:subClassOf :urban_trip .
+
+
+###  http://www.georgiaftz.org/myontology/urban_routes
+:urban_routes rdf:type owl:Class ;
+              rdfs:subClassOf :routes .
+
+
+###  http://www.georgiaftz.org/myontology/urban_services
+:urban_services rdf:type owl:Class ;
+                rdfs:subClassOf :services .
+
+
+###  http://www.georgiaftz.org/myontology/urban_stops
+:urban_stops rdf:type owl:Class ;
+             rdfs:subClassOf :stops .
+
+
+###  http://www.georgiaftz.org/myontology/urban_trip
+:urban_trip rdf:type owl:Class ;
+            rdfs:subClassOf :trips .
+
+
+###  http://www.georgiaftz.org/myontology/urban_vehicle
+:urban_vehicle rdf:type owl:Class ;
+               rdfs:subClassOf :transportation_vehicle .
+
+
+###  http://www.georgiaftz.org/myontology/weekday
+:weekday rdf:type owl:Class ;
+         rdfs:subClassOf :days .
+
+
+###  http://www.georgiaftz.org/myontology/weekend
+:weekend rdf:type owl:Class ;
+         rdfs:subClassOf :days .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :days
+                :routes
+                :services
+                :stops
+                :transportation_vehicle
+                :trips
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
